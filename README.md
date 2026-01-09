@@ -1,2 +1,2 @@
 # NightGuard-Game-Mobile
-This project is a fan-made game inspired by Five Nights at Freddy’s made in Unity for Mobile. All intellectual property belongs to their respective owners.
+This is a FNAF-inspired game made in Unity for mobile. Only the gameplay mechanics are similar to the original; all characters, models, and assets are original or freely sourced, and no official FNAF content is used.
