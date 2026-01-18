@@ -149,12 +149,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 39226673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: DinningArea2
+  key: 
   value:
-    animationName: DinningArea2
+    animationName: 
     trans: {fileID: 39226675}
 --- !u!4 &39226675
 Transform:
@@ -212,12 +212,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 62283976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: PrizeCorner
+  key: 
   value:
-    animationName: PrizeCorner
+    animationName: 
     trans: {fileID: 62283977}
 --- !u!1 &110198207
 GameObject:
@@ -336,12 +336,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 143972145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: PartsAndService
+  key: 
   value:
-    animationName: PartsAndService
+    animationName: 
     trans: {fileID: 143972146}
 --- !u!1 &146098779
 GameObject:
@@ -690,27 +690,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 307637807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ada8b6cb2867374fa254313a4dbe7ff, type: 3}
+  m_Script: {fileID: 11500000, guid: ee3d13737da8654479d901ce4a114ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animatronic: {fileID: 1543357254}
-  animatronicName: Wortox
-  roomsList:
-  - {fileID: 652956944}
-  - {fileID: 62283978}
-  - {fileID: 976856880}
-  - {fileID: 1029265911}
-  - {fileID: 1212853754}
-  - {fileID: 900055784}
-  - {fileID: 39226674}
-  - {fileID: 1843610642}
+  animatronicName: 0
+  roomsList: []
   startingRoom: Stage
-  timerScript: {fileID: 529666514}
-  camSystem: {fileID: 529666510}
+  timerScript: {fileID: 0}
+  camSystem: {fileID: 0}
   MovementInterval: 7
   AI_level: 0
-  player: {fileID: 963194225}
-  door: {fileID: 2024700412}
+  player: {fileID: 0}
+  door: {fileID: 0}
   selected: 0
   jumpsacreDelay: -1
 --- !u!82 &307637810
@@ -818,26 +810,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 307637807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f663f2917f250e1478536ae20abdbd90, type: 3}
+  m_Script: {fileID: 11500000, guid: 93d4130ace06d3d4c9dd70724ca577b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animatronic: {fileID: 491131649}
-  animatronicName: Angie
-  roomsList:
-  - {fileID: 695294091}
-  - {fileID: 143972147}
-  - {fileID: 1570611602}
-  - {fileID: 592265664}
-  - {fileID: 1850982314}
-  - {fileID: 424278915}
-  - {fileID: 429074377}
+  animatronicName: 1
+  roomsList: []
   startingRoom: Stage
-  timerScript: {fileID: 529666514}
-  camSystem: {fileID: 529666510}
-  MovementInterval: 8
+  timerScript: {fileID: 0}
+  camSystem: {fileID: 0}
+  MovementInterval: 7
   AI_level: 0
-  player: {fileID: 963194225}
-  door: {fileID: 1092568993}
+  player: {fileID: 0}
+  door: {fileID: 0}
   selected: 0
 --- !u!1 &336696012
 GameObject:
@@ -947,12 +932,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 383931432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff862a8a5cb908748a1ac4065e347836, type: 3}
+  m_Script: {fileID: 11500000, guid: 4403b3366043fd24a913dd9e8c099fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 2100000, guid: 3f6261eb054c5b44fb3e20fb8a2ec174, type: 2}
-  - {fileID: 2100000, guid: 607217c6e620ce940a9f99f9bc07f561, type: 2}
+  materials: []
   door: {fileID: 2024700416}
 --- !u!65 &383931437
 BoxCollider:
@@ -1122,12 +1105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 404749339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff862a8a5cb908748a1ac4065e347836, type: 3}
+  m_Script: {fileID: 11500000, guid: 4403b3366043fd24a913dd9e8c099fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 2100000, guid: 3f6261eb054c5b44fb3e20fb8a2ec174, type: 2}
-  - {fileID: 2100000, guid: 607217c6e620ce940a9f99f9bc07f561, type: 2}
+  materials: []
   door: {fileID: 1092568997}
 --- !u!65 &404749344
 BoxCollider:
@@ -1191,12 +1172,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 424278913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: RightDoor
+  key: 
   value:
-    animationName: RightDoor
+    animationName: 
     trans: {fileID: 424278914}
 --- !u!1 &429074375
 GameObject:
@@ -1239,12 +1220,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 429074375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: Office
+  key: 
   value:
-    animationName: Stage
+    animationName: 
     trans: {fileID: 429074376}
 --- !u!1 &442857206
 GameObject:
@@ -1688,25 +1669,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 529666509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0742ae728a38f9147ac2a981e6400feb, type: 3}
+  m_Script: {fileID: 11500000, guid: b8b0c5c4971ac99409d84284cedd82fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 963194225}
-  vent: {fileID: 1802916517}
-  cameras:
-  - {fileID: 336696012}
-  - {fileID: 1696431955}
-  - {fileID: 826079841}
-  - {fileID: 397565941}
-  - {fileID: 1837159071}
-  - {fileID: 1960478797}
-  - {fileID: 909791315}
-  - {fileID: 442857206}
-  CameraUI: {fileID: 1525245266}
-  CurrentCameraText: {fileID: 661435892}
-  currentCamera: 0
-  isCameraOpen: 0
-  disabled: 0
+  timer: 0
+  shiftEndTime: 6
+  digitalClock: 
+  timeMultiplier: 1
+  clockUI: {fileID: 695396013}
 --- !u!4 &529666511
 Transform:
   m_ObjectHideFlags: 0
@@ -1923,14 +1893,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 529666509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af8ff262bca417446b7896f784bdce30, type: 3}
+  m_Script: {fileID: 11500000, guid: ee4dd378ea0b4ab40a1bda9d980226c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
-  shiftEndTime: 6
-  digitalClock: 
-  timeMultiplier: 1
-  clockUI: {fileID: 695396013}
+  flashlight: {fileID: 1282806648}
+  cameraSensitivity: 75
+  minYaw: 0
+  maxYaw: 0
+  edgeThresholdPercent: 0.1
+  disabled: 0
 --- !u!114 &529666515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1940,28 +1911,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 529666509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 678f4f1829429854f9bcdd41305b9010, type: 3}
+  m_Script: {fileID: 11500000, guid: 08a64f8f022cf9342ab5dc523f963136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 100
-  powerDrain: 0.1667
-  usagelevel: 1
-  batteryPercent: {fileID: 2058331931}
-  UsageSpite:
-  - {fileID: 639571204}
-  - {fileID: 1485206911}
-  - {fileID: 1046611005}
-  - {fileID: 1815184222}
-  - {fileID: 1239301592}
-  player: {fileID: 963194225}
-  cameraSystem: {fileID: 529666509}
-  LeftDoor: {fileID: 2024700412}
-  RightDoor: {fileID: 1092568993}
-  poweroutage: {fileID: 529666516}
-  vent: {fileID: 1802916521}
-  breaker: {fileID: 2125077400}
-  officeLight: {fileID: 146098780}
-  Cambutton: {fileID: 1622041669}
+  mainCamera: {fileID: 963194225}
+  vent: {fileID: 1802916517}
+  cameras:
+  - {fileID: 336696012}
+  - {fileID: 1696431955}
+  - {fileID: 826079841}
+  - {fileID: 397565941}
+  - {fileID: 1837159071}
+  - {fileID: 1960478797}
+  - {fileID: 909791315}
+  - {fileID: 442857206}
+  CameraUI: {fileID: 1525245266}
+  CurrentCameraText: {fileID: 661435892}
+  currentCamera: 0
+  isCameraOpen: 0
+  disabled: 0
 --- !u!82 &529666516
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2099,12 +2067,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 592265662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: Bathroom
+  key: 
   value:
-    animationName: Bathroom
+    animationName: 
     trans: {fileID: 592265663}
 --- !u!1 &593467273
 GameObject:
@@ -2598,12 +2566,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 652956942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: Stage
+  key: 
   value:
-    animationName: Stage
+    animationName: 
     trans: {fileID: 652956943}
 --- !u!1 &661435890
 GameObject:
@@ -2859,12 +2827,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 695294089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: Stage
+  key: 
   value:
-    animationName: Stage
+    animationName: 
     trans: {fileID: 695294090}
 --- !u!1 &695396011
 GameObject:
@@ -3268,8 +3236,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: -6067719993724776061, guid: 2e882b91f6ad74542b6b26b967a6bba0,
-    type: 3}
+  m_Texture: {fileID: 2800000, guid: c5dfd08942754504594ad6eea53f072f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3720,12 +3687,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 900055782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: LeftDoor
+  key: 
   value:
-    animationName: LeftDoor
+    animationName: 
     trans: {fileID: 900055783}
 --- !u!1 &909791315
 GameObject:
@@ -4008,54 +3975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 963194228}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -4135,12 +4054,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9955b3aaa648c3948b23433f987b7bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashlight: {fileID: 1282806648}
-  cameraSensitivity: 75
-  minYaw: 98.83301
-  maxYaw: 172.939
-  edgeThresholdPercent: 0.3
-  disabled: 0
 --- !u!81 &963194230
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4429,12 +4342,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 976856878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: DinningArea
+  key: 
   value:
-    animationName: DinningArea
+    animationName: 
     trans: {fileID: 976856879}
 --- !u!1 &984543114
 GameObject:
@@ -4556,12 +4469,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1029265909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: Kitchen
+  key: 
   value:
-    animationName: Kitchen
+    animationName: 
     trans: {fileID: 1029265910}
 --- !u!1 &1046611005
 GameObject:
@@ -4749,12 +4662,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1092568993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c790c6cee2b682a44b609f763a4d466f, type: 3}
+  m_Script: {fileID: 11500000, guid: 257fed86bb83da844a42dd2c1559f072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openPosition: {x: 0, y: 3.35, z: -0.04}
-  closePosition: {x: 0, y: 0.117, z: -0.04}
-  doorSpeed: 4
+  openPosition: {x: 0, y: 0, z: 0}
+  closePosition: {x: 0, y: 0, z: 0}
+  doorSpeed: 5
   DoorSfx: {fileID: 1092568998}
   DoorBonkSfx: {fileID: 1092568994}
   disabled: 0
@@ -4977,11 +4890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: bf9acb21c887de847a020bb3b088fb48, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!4 &1139576288
 Transform:
   m_ObjectHideFlags: 0
@@ -5195,12 +5103,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1212853752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: LeftHall
+  key: 
   value:
-    animationName: LeftHall
+    animationName: 
     trans: {fileID: 1212853753}
 --- !u!1 &1220086338
 GameObject:
@@ -7316,12 +7224,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1570611600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: DinningArea
+  key: 
   value:
-    animationName: DinningArea
+    animationName: 
     trans: {fileID: 1570611601}
 --- !u!1001 &1622041666
 PrefabInstance:
@@ -7657,13 +7565,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1622041667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a0ccd3ece27f1843b3a2e6544c2747f, type: 3}
+  m_Script: {fileID: 11500000, guid: 62d30bf18e9ed02458976c7c30c0aa05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camSystem: {fileID: 529666510}
-  materials:
-  - {fileID: 2100000, guid: 3f6261eb054c5b44fb3e20fb8a2ec174, type: 2}
-  - {fileID: 2100000, guid: 607217c6e620ce940a9f99f9bc07f561, type: 2}
+  camSystem: {fileID: 0}
+  materials: []
 --- !u!65 &1622041673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8475,12 +8381,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1843610640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: Office
+  key: 
   value:
-    animationName: Stage
+    animationName: 
     trans: {fileID: 1843610641}
 --- !u!1 &1850982312
 GameObject:
@@ -8523,12 +8429,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1850982312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fadf2c67b5519409a02b08e3f7b4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: RightHall
+  key: 
   value:
-    animationName: RightHall
+    animationName: 
     trans: {fileID: 1850982313}
 --- !u!1 &1866834362
 GameObject:
@@ -9142,12 +9048,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2024700412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c790c6cee2b682a44b609f763a4d466f, type: 3}
+  m_Script: {fileID: 11500000, guid: 257fed86bb83da844a42dd2c1559f072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openPosition: {x: 0.06, y: 3.35, z: 0}
-  closePosition: {x: 0.06, y: 0.117, z: 0}
-  doorSpeed: 4
+  openPosition: {x: 0, y: 0, z: 0}
+  closePosition: {x: 0, y: 0, z: 0}
+  doorSpeed: 5
   DoorSfx: {fileID: 2024700417}
   DoorBonkSfx: {fileID: 2024700413}
   disabled: 0
