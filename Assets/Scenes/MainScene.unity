@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.41960785, g: 0.47843137, b: 0.627451, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -152,9 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: DinningArea2
   value:
-    animationName: 
+    animationName: DinningArea2
     trans: {fileID: 39226675}
 --- !u!4 &39226675
 Transform:
@@ -215,9 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: PrizeCorner
   value:
-    animationName: 
+    animationName: PrizeCorner
     trans: {fileID: 62283977}
 --- !u!1 &110198207
 GameObject:
@@ -339,9 +339,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: PartsAndService
   value:
-    animationName: 
+    animationName: PartsAndService
     trans: {fileID: 143972146}
 --- !u!1 &146098779
 GameObject:
@@ -371,14 +371,14 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.90771395, g: 0.9150943, b: 0.82444817, a: 1}
-  m_Intensity: 10
-  m_Range: 8
-  m_SpotAngle: 161.5739
-  m_InnerSpotAngle: 21.80208
+  m_Color: {r: 0.83396226, g: 0.83396226, b: 0.83396226, a: 1}
+  m_Intensity: 7
+  m_Range: 3.1933405
+  m_SpotAngle: 114.28393
+  m_InnerSpotAngle: 19.939386
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -411,13 +411,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 4.813024e-29, z: 4.5904e-41, w: 9.403955e-38}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -431,7 +431,7 @@ Transform:
   m_GameObject: {fileID: 146098779}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7067703, y: -0, z: -0, w: 0.7074431}
-  m_LocalPosition: {x: -1.3299999, y: 5.53, z: 1.2799997}
+  m_LocalPosition: {x: -1.14, y: 4.66, z: 1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -560,7 +560,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -593,7 +593,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -655,8 +655,8 @@ GameObject:
   m_Component:
   - component: {fileID: 307637808}
   - component: {fileID: 307637809}
-  - component: {fileID: 307637810}
   - component: {fileID: 307637811}
+  - component: {fileID: 307637810}
   m_Layer: 0
   m_Name: Animatronics
   m_TagString: Untagged
@@ -695,14 +695,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatronic: {fileID: 1543357254}
   animatronicName: 0
-  roomsList: []
+  roomsList:
+  - {fileID: 652956944}
+  - {fileID: 62283978}
+  - {fileID: 976856880}
+  - {fileID: 1029265911}
+  - {fileID: 1212853754}
+  - {fileID: 900055784}
+  - {fileID: 39226674}
+  - {fileID: 1843610642}
   startingRoom: Stage
-  timerScript: {fileID: 0}
-  camSystem: {fileID: 0}
+  timerScript: {fileID: 529666510}
+  camSystem: {fileID: 529666515}
   MovementInterval: 7
   AI_level: 0
-  player: {fileID: 0}
-  door: {fileID: 0}
+  player: {fileID: 963194225}
+  door: {fileID: 2024700412}
   selected: 0
   jumpsacreDelay: -1
 --- !u!82 &307637810
@@ -815,14 +823,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatronic: {fileID: 491131649}
   animatronicName: 1
-  roomsList: []
+  roomsList:
+  - {fileID: 695294091}
+  - {fileID: 143972147}
+  - {fileID: 592265664}
+  - {fileID: 1570611602}
+  - {fileID: 1850982314}
+  - {fileID: 424278915}
+  - {fileID: 429074377}
   startingRoom: Stage
-  timerScript: {fileID: 0}
-  camSystem: {fileID: 0}
+  timerScript: {fileID: 529666510}
+  camSystem: {fileID: 529666515}
   MovementInterval: 7
   AI_level: 0
-  player: {fileID: 0}
-  door: {fileID: 0}
+  player: {fileID: 963194225}
+  door: {fileID: 404749339}
   selected: 0
 --- !u!1 &336696012
 GameObject:
@@ -935,7 +950,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4403b3366043fd24a913dd9e8c099fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materials: []
+  materials:
+  - {fileID: 2100000, guid: 3f6261eb054c5b44fb3e20fb8a2ec174, type: 2}
+  - {fileID: 2100000, guid: 607217c6e620ce940a9f99f9bc07f561, type: 2}
   door: {fileID: 2024700416}
 --- !u!65 &383931437
 BoxCollider:
@@ -1108,7 +1125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4403b3366043fd24a913dd9e8c099fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materials: []
+  materials:
+  - {fileID: 2100000, guid: 3f6261eb054c5b44fb3e20fb8a2ec174, type: 2}
+  - {fileID: 2100000, guid: 607217c6e620ce940a9f99f9bc07f561, type: 2}
   door: {fileID: 1092568997}
 --- !u!65 &404749344
 BoxCollider:
@@ -1175,9 +1194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: RightDoor
   value:
-    animationName: 
+    animationName: RightDoor
     trans: {fileID: 424278914}
 --- !u!1 &429074375
 GameObject:
@@ -1223,9 +1242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: Office
   value:
-    animationName: 
+    animationName: Stage
     trans: {fileID: 429074376}
 --- !u!1 &442857206
 GameObject:
@@ -1407,7 +1426,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1440,7 +1459,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1549,8 +1568,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 529666510}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 529666515}
+        m_TargetAssemblyTypeName: CameraSystem, Assembly-CSharp
         m_MethodName: goToCamera
         m_Mode: 3
         m_Arguments:
@@ -1647,9 +1666,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 529666511}
-  - component: {fileID: 529666514}
   - component: {fileID: 529666510}
   - component: {fileID: 529666515}
+  - component: {fileID: 529666517}
   - component: {fileID: 529666512}
   - component: {fileID: 529666513}
   - component: {fileID: 529666516}
@@ -1884,24 +1903,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &529666514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529666509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee4dd378ea0b4ab40a1bda9d980226c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashlight: {fileID: 1282806648}
-  cameraSensitivity: 75
-  minYaw: 0
-  maxYaw: 0
-  edgeThresholdPercent: 0.1
-  disabled: 0
 --- !u!114 &529666515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2026,6 +2027,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &529666517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529666509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37f30006adba5f84494fd6a519a37b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 100
+  powerDrain: 0
+  usagelevel: 1
+  batteryPercent: {fileID: 2058331931}
+  UsageSpite: []
+  player: {fileID: 1282806648}
+  cameraSystem: {fileID: 110198207}
+  LeftDoor: {fileID: 2024700412}
+  RightDoor: {fileID: 1092568993}
+  poweroutage: {fileID: 0}
+  vent: {fileID: 0}
+  breaker: {fileID: 0}
+  officeLight: {fileID: 0}
+  Cambutton: {fileID: 0}
 --- !u!1 &592265662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,9 +2097,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: Bathroom
   value:
-    animationName: 
+    animationName: Bathroom
     trans: {fileID: 592265663}
 --- !u!1 &593467273
 GameObject:
@@ -2200,7 +2227,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2294,8 +2321,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 529666510}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 529666515}
+        m_TargetAssemblyTypeName: CameraSystem, Assembly-CSharp
         m_MethodName: goToCamera
         m_Mode: 3
         m_Arguments:
@@ -2481,7 +2508,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -2514,7 +2541,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2569,9 +2596,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: Stage
   value:
-    animationName: 
+    animationName: Stage
     trans: {fileID: 652956943}
 --- !u!1 &661435890
 GameObject:
@@ -2830,9 +2857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: Stage
   value:
-    animationName: 
+    animationName: Stage
     trans: {fileID: 695294090}
 --- !u!1 &695396011
 GameObject:
@@ -3301,7 +3328,7 @@ Light:
   m_InnerSpotAngle: 8
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3334,7 +3361,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -3602,7 +3629,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3635,7 +3662,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -3690,9 +3717,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: LeftDoor
   value:
-    animationName: 
+    animationName: LeftDoor
     trans: {fileID: 900055783}
 --- !u!1 &909791315
 GameObject:
@@ -3972,9 +3999,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Script: {fileID: 11500000, guid: ee4dd378ea0b4ab40a1bda9d980226c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashlight: {fileID: 1282806648}
+  cameraSensitivity: 75
+  minYaw: 99.262
+  maxYaw: 170.622
+  edgeThresholdPercent: 0.3
+  disabled: 0
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -4034,14 +4067,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.96437246, z: -0, w: 0.2645484}
-  m_LocalPosition: {x: -3.0350003, y: 2.71, z: 3.0089998}
+  m_LocalRotation: {x: -0, y: 0.996653, z: -0, w: 0.0817483}
+  m_LocalPosition: {x: -3.0350003, y: 2.66, z: 3.0089998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1282806649}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 149.32, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 170.622, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4051,9 +4084,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9955b3aaa648c3948b23433f987b7bbd, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c2d68e2379e13a4c9a23732e7c0af91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  honkCooldown: 0.5
 --- !u!81 &963194230
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4112,7 +4146,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -4145,7 +4179,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -4239,8 +4273,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 529666510}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 529666515}
+        m_TargetAssemblyTypeName: CameraSystem, Assembly-CSharp
         m_MethodName: goToCamera
         m_Mode: 3
         m_Arguments:
@@ -4345,9 +4379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: DinningArea
   value:
-    animationName: 
+    animationName: ' DinningArea'
     trans: {fileID: 976856879}
 --- !u!1 &984543114
 GameObject:
@@ -4472,9 +4506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: Kitchen
   value:
-    animationName: 
+    animationName: Kitchen
     trans: {fileID: 1029265910}
 --- !u!1 &1046611005
 GameObject:
@@ -4665,7 +4699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257fed86bb83da844a42dd2c1559f072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openPosition: {x: 0, y: 0, z: 0}
+  openPosition: {x: 0, y: 3.23, z: 0}
   closePosition: {x: 0, y: 0, z: 0}
   doorSpeed: 5
   DoorSfx: {fileID: 1092568998}
@@ -4817,7 +4851,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -4850,7 +4884,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -4988,8 +5022,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 529666510}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 529666515}
+        m_TargetAssemblyTypeName: CameraSystem, Assembly-CSharp
         m_MethodName: goToCamera
         m_Mode: 3
         m_Arguments:
@@ -5106,9 +5140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: LeftHall
   value:
-    animationName: 
+    animationName: LeftHall
     trans: {fileID: 1212853753}
 --- !u!1 &1220086338
 GameObject:
@@ -5160,7 +5194,7 @@ Light:
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -5193,7 +5227,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -5404,13 +5438,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 4.813024e-29, z: 4.5904e-41, w: 9.403955e-38}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -5755,7 +5789,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -5788,7 +5822,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -5917,7 +5951,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -5950,7 +5984,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -5991,12 +6025,12 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 8.66991
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -6029,13 +6063,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 3.4e-44, z: 1.1708e-41, w: 1.794e-42}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -6049,7 +6083,7 @@ Transform:
   m_GameObject: {fileID: 1404322583}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.9290009, y: 3.184, z: 3.0310001}
+  m_LocalPosition: {x: -2.9290009, y: 4.08, z: 3.0310001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6239,7 +6273,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -6272,7 +6306,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -6333,7 +6367,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -6366,7 +6400,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -6535,8 +6569,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 529666510}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 529666515}
+        m_TargetAssemblyTypeName: CameraSystem, Assembly-CSharp
         m_MethodName: goToCamera
         m_Mode: 3
         m_Arguments:
@@ -6680,8 +6714,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 529666510}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 529666515}
+        m_TargetAssemblyTypeName: CameraSystem, Assembly-CSharp
         m_MethodName: goToCamera
         m_Mode: 3
         m_Arguments:
@@ -7139,7 +7173,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -7172,7 +7206,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -7227,9 +7261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: DinningArea
   value:
-    animationName: 
+    animationName: DinningArea
     trans: {fileID: 1570611601}
 --- !u!1001 &1622041666
 PrefabInstance:
@@ -7382,7 +7416,7 @@ PrefabInstance:
     - target: {fileID: 9099979614260666202, guid: 074558b0d3a8d984087678bc4bb6653f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.117
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9141988178873175681, guid: 074558b0d3a8d984087678bc4bb6653f,
         type: 3}
@@ -7568,8 +7602,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d30bf18e9ed02458976c7c30c0aa05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camSystem: {fileID: 0}
-  materials: []
+  camSystem: {fileID: 529666515}
+  materials:
+  - {fileID: 2100000, guid: 3f6261eb054c5b44fb3e20fb8a2ec174, type: 2}
+  - {fileID: 2100000, guid: 607217c6e620ce940a9f99f9bc07f561, type: 2}
 --- !u!65 &1622041673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7813,7 +7849,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -7846,7 +7882,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -8384,9 +8420,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: Office
   value:
-    animationName: 
+    animationName: Stage
     trans: {fileID: 1843610641}
 --- !u!1 &1850982312
 GameObject:
@@ -8432,9 +8468,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef05f4cf7c9704181e552b03d62b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: RightHall
   value:
-    animationName: 
+    animationName: RightHall
     trans: {fileID: 1850982313}
 --- !u!1 &1866834362
 GameObject:
@@ -8598,8 +8634,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 529666510}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 529666515}
+        m_TargetAssemblyTypeName: CameraSystem, Assembly-CSharp
         m_MethodName: goToCamera
         m_Mode: 3
         m_Arguments:
@@ -9051,7 +9087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257fed86bb83da844a42dd2c1559f072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openPosition: {x: 0, y: 0, z: 0}
+  openPosition: {x: 0, y: 3.23, z: 0}
   closePosition: {x: 0, y: 0, z: 0}
   doorSpeed: 5
   DoorSfx: {fileID: 2024700417}
@@ -9370,8 +9406,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 529666510}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 529666515}
+        m_TargetAssemblyTypeName: CameraSystem, Assembly-CSharp
         m_MethodName: goToCamera
         m_Mode: 3
         m_Arguments:
