@@ -4,7 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: c850ee8c3b14cc8459e7e186857cf567
+  - enabled: 1
+    path: Assets/Scenes/NightIntroScene.unity
+    guid: 0e148b4ae9ea2aa4c82416681f358b2a
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: c42f6adfc16e74c419775feaec51f6ab
+  - enabled: 1
+    path: Assets/Scenes/JumpscareScene.unity
+    guid: a78da94f321f52f46a06e1d730ee00b1
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 5b52267788a572247b3a146a4b60df42, type: 2}

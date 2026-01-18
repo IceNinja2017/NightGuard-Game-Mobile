@@ -6,12 +6,11 @@ public class NightData : MonoBehaviour
 {
     [SerializeField] List<NightAIData> nights;
 
-    [SerializeField] bool haspoweroutage;
+    [SerializeField] public bool haspoweroutage;
 
+    [SerializeField] private int CurrentNight = 1; //make sure to load from saved data in future
     public static NightData Instance { get; private set; } // Singleton instance
     public Animatronic JumpscaringAnimatronic { get; private set; } //name of the animatronic that caused the game over
-
-    private int CurrentNight = 1; //make sure to load from saved data in future
 
     private Dictionary<int, NightAIData> nightLookup;
 
@@ -49,6 +48,11 @@ public class NightData : MonoBehaviour
     public int getCurrentNight()
     {
         return CurrentNight;
+    }
+
+    public void setCurrentNight(int night)
+    {
+        CurrentNight = night;
     }
 
     public void nextNight()
