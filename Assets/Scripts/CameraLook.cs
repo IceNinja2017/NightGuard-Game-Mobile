@@ -40,7 +40,7 @@ public class CameraLook : MonoBehaviour, IPowerUser
         {
             float direction = Mathf.Sign(deltaX);
             camLookDistance += direction * cameraSensitivity * Time.deltaTime;
-            Debug.Log($"Edge threshold: {edgeThresholdPixels} pixels");
+            //Debug.Log($"Edge threshold: {edgeThresholdPixels} pixels");
         }
         camLookDistance = Mathf.Clamp(camLookDistance, minYaw, maxYaw);
         transform.localRotation = Quaternion.Euler(0f, camLookDistance, 0f);
@@ -49,6 +49,7 @@ public class CameraLook : MonoBehaviour, IPowerUser
         {
             if (!disabled)
             {
+                //Debug.Log("Flashlight!!!!");
                 ToggleFlashlight();
                 if (getFlashlightState()) audios[0].pitch = 1f;
                 else audios[0].pitch = 0.9f;

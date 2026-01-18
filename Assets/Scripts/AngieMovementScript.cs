@@ -110,17 +110,19 @@ public class AngieMovementScript : AnimatronicBase
                     }
                     else
                     {
-                        Debug.Log("LeftDoor to Office failed — camera not open.");
+                        //Debug.Log("LeftDoor to Office failed — camera not open.");
                     }
                 }
                 else
                 {
                     current_room = next;
-                    Debug.Log("I've Moved to " + current_room);
+                    //Debug.Log("I've Moved to " + current_room);
                 }
             }
-            else Debug.Log("I Failed to Move ");
-
+            else
+            {
+                //Debug.Log("I Failed to Move ");}
+            }
             movementTimer = 0;
         }
         ChangeRoom(current_room);
