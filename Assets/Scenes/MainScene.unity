@@ -2062,12 +2062,17 @@ MonoBehaviour:
   powerDrain: 0
   usagelevel: 1
   batteryPercent: {fileID: 2058331931}
-  UsageSpite: []
-  player: {fileID: 1282806648}
-  cameraSystem: {fileID: 110198207}
+  UsageSpite:
+  - {fileID: 639571204}
+  - {fileID: 1485206911}
+  - {fileID: 1046611005}
+  - {fileID: 1815184222}
+  - {fileID: 1239301592}
+  player: {fileID: 963194225}
+  cameraSystem: {fileID: 529666509}
   LeftDoor: {fileID: 2024700412}
   RightDoor: {fileID: 1092568993}
-  poweroutage: {fileID: 0}
+  poweroutage: {fileID: 529666516}
   vent: {fileID: 1802916521}
   breaker: {fileID: 2125077400}
   officeLight: {fileID: 1282806650}
@@ -5023,6 +5028,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: bf9acb21c887de847a020bb3b088fb48, type: 2}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!4 &1139576288
 Transform:
   m_ObjectHideFlags: 0
