@@ -4392,7 +4392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: DinningArea
   value:
-    animationName: ' DinningArea'
+    animationName: DinningArea
     trans: {fileID: 976856879}
 --- !u!1 &984543114
 GameObject:
