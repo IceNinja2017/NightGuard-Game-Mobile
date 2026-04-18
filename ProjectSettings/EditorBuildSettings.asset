@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JumpscareScene.unity
     guid: a78da94f321f52f46a06e1d730ee00b1
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 0b834131be425044aa632f7be8753dd5
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 5b52267788a572247b3a146a4b60df42, type: 2}

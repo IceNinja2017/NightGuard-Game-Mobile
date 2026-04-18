@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NightData : MonoBehaviour
 {
@@ -34,14 +35,24 @@ public class NightData : MonoBehaviour
     }
     void Update()
     {
-        // Exit application on Escape key press (for testing purposes)
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
-            // Optional: Works in the editor
-            #if UNITY_EDITOR
-                        UnityEditor.EditorApplication.isPlaying = false;
-            #endif
+            string currentScene = SceneManager.GetActiveScene().name;
+            // Exit application on Escape key press (for testing purposes)
+            if (currentScene == "MainMenu")
+            {
+                Application.Quit();
+                // Optional: Works in the editor
+                #if UNITY_EDITOR
+                            UnityEditor.EditorApplication.isPlaying = false;
+                #endif
+            }
+            else
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+
+            
         }
     }
 
