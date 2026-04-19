@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 0b834131be425044aa632f7be8753dd5
+  - enabled: 1
+    path: Assets/Scenes/PayDayScene.unity
+    guid: 7556ffa66878d294b8d154384928abbd
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 5b52267788a572247b3a146a4b60df42, type: 2}

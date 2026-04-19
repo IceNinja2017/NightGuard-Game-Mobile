@@ -98,7 +98,7 @@ public class CameraLook : MonoBehaviour, IPowerUser
         {
             return -1;
         }
-        else if (this.transform.rotation.eulerAngles.y >= 171f)
+        else if (this.transform.rotation.eulerAngles.y >= 169f)
         {
             return 1;
         }

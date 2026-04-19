@@ -427,10 +427,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 545598291}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -346.66, y: -131.47}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.5, y: 0.126}
+  m_AnchorMax: {x: 0.5, y: 0.126}
+  m_AnchoredPosition: {x: -1.4714, y: 48.931}
+  m_SizeDelta: {x: 874.6667, y: 32.5227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &800549561
 MonoBehaviour:
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.09951782, z: -0.22801208, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -566,6 +566,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5afdbbc1c5916af4a9eb1d9237188487, type: 2}
   haspoweroutage: 0
   CurrentNight: 1
+  isShiftCompleted: 0
 --- !u!4 &1187396085
 Transform:
   m_ObjectHideFlags: 0
@@ -720,10 +721,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 545598291}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 16.699, y: -202.62}
-  m_SizeDelta: {x: -33.3983, y: -433.1974}
+  m_AnchorMin: {x: 0.5, y: 0.126}
+  m_AnchorMax: {x: 0.5, y: 0.126}
+  m_AnchoredPosition: {x: 0.00000453, y: -10.0000305}
+  m_SizeDelta: {x: 843.0099, y: 124.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1987771330
 MonoBehaviour:
@@ -745,12 +746,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '*Click The [GREEN] and [RED] Button to inteact with Doors and Monitor
+  m_text: '*Click The <b><color=green>[GREEN]</color></b> and <b><color=red>[RED]</color></b>
+    Button to inteact with Doors and Monitor
 
-    *Pressing
-    [F] will toggle the Flashlight
+    *Pressing <b><color=yellow>[F]</color></b>
+    will toggle the Flashlight
 
-    *Press [Spacebar] to Exit the Monitor'
+    *Press <b><color=yellow>[Spacebar]</color></b>
+    to Exit the Monitor'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

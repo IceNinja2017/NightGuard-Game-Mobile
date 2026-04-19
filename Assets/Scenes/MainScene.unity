@@ -793,7 +793,7 @@ MonoBehaviour:
   MovementInterval: 7
   AI_level: 0
   player: {fileID: 963194225}
-  door: {fileID: 404749339}
+  door: {fileID: 1092568993}
   selected: 0
 --- !u!1 &336696012
 GameObject:

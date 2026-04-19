@@ -26,6 +26,10 @@ public class HandleWin : MonoBehaviour
             if (NightData.Instance.getCurrentNight() >= 5)
             {
                 Debug.Log("You Win Hurrahh!!!");
+                NightData.Instance.isShiftCompleted = true;
+
+                //Transition to PayDay Screen (EndCredits)
+                SceneManager.LoadScene("PayDayScene");
             }
             else
             {

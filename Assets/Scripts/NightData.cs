@@ -15,6 +15,8 @@ public class NightData : MonoBehaviour
 
     private Dictionary<int, NightAIData> nightLookup;
 
+    public bool isShiftCompleted = false; //check for is the player has finished all 5 nights
+
 
     void Awake()
     {
