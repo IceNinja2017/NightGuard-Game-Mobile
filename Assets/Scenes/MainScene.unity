@@ -1534,6 +1534,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5afdbbc1c5916af4a9eb1d9237188487, type: 2}
   haspoweroutage: 0
   CurrentNight: 1
+  isShiftCompleted: 0
 --- !u!4 &465935875
 Transform:
   m_ObjectHideFlags: 0
@@ -3285,6 +3286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 762578888}
   - component: {fileID: 762578889}
+  - component: {fileID: 762578890}
   m_Layer: 0
   m_Name: PlayerLight (1)
   m_TagString: Untagged
@@ -3369,6 +3371,18 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &762578890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762578887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ddea5b66b74c384085e2ce8d0ceefe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &797214265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7978,6 +7992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1685909290}
   - component: {fileID: 1685909291}
+  - component: {fileID: 1685909292}
   m_Layer: 0
   m_Name: PlayerLight (2)
   m_TagString: Untagged
@@ -8062,6 +8077,18 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1685909292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685909289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ddea5b66b74c384085e2ce8d0ceefe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1687623104
 GameObject:
   m_ObjectHideFlags: 0
