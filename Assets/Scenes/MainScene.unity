@@ -790,7 +790,7 @@ MonoBehaviour:
   startingRoom: Stage
   timerScript: {fileID: 529666510}
   camSystem: {fileID: 529666515}
-  MovementInterval: 7
+  MovementInterval: 8
   AI_level: 0
   player: {fileID: 963194225}
   door: {fileID: 1092568993}
@@ -1533,7 +1533,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: afd783800fb7b374aa1401fda2503f36, type: 2}
   - {fileID: 11400000, guid: 5afdbbc1c5916af4a9eb1d9237188487, type: 2}
   haspoweroutage: 0
-  CurrentNight: 1
   isShiftCompleted: 0
 --- !u!4 &465935875
 Transform:
@@ -3322,7 +3321,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.77
-  m_Range: 10.618282
+  m_Range: 7.7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -7235,7 +7234,7 @@ PrefabInstance:
     - target: {fileID: -5571544360764475994, guid: 64d8a402c77758542a4b92977eb3ee27,
         type: 3}
       propertyPath: m_UpdateWhenOffscreen
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2756436592338574819, guid: 64d8a402c77758542a4b92977eb3ee27,
         type: 3}
@@ -8027,7 +8026,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.77
+  m_Intensity: 1.55
   m_Range: 6.852415
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

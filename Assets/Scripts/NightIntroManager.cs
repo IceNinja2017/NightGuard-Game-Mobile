@@ -1,4 +1,4 @@
-﻿using DG.Tweening; //From DOTween
+﻿using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -18,8 +18,31 @@ public class NightIntroManager : MonoBehaviour
 
     IEnumerator LoadMainSceneAfterDelay()
     {
-        nightText.DOFade(0, 1.5f).SetDelay(delayBeforeStart - 1.5f);
+        nightText.DOFade(0, 1.5f)
+            .SetDelay(delayBeforeStart - 1.5f);
+
         yield return new WaitForSeconds(delayBeforeStart);
-        SceneManager.LoadScene("MainScene");
+
+        // START ASYNC LOAD (not blocking)
+        AsyncOperation op = SceneManager.LoadSceneAsync("MainScene");
+        op.allowSceneActivation = false;
+
+        // wait until scene is almost fully loaded
+        while (op.progress < 0.9f)
+            yield return null;
+
+        // let Unity initialize render pipeline one frame
+        yield return null;
+
+        // FORCE WARMUP STEP
+        Shader.WarmupAllShaders();
+
+        // optional: force camera initialization
+        foreach (var cam in FindObjectsOfType<Camera>())
+        {
+            cam.Render();
+        }
+
+        op.allowSceneActivation = true;
     }
 }

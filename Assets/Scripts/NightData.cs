@@ -27,21 +27,26 @@ public class NightData : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        CurrentNight = SaveManager.instance.CurrentNight;
-        isShiftCompleted = SaveManager.instance.isShiftCompleted;
-
         nightLookup = new Dictionary<int, NightAIData>();
 
         foreach (var night in nights)
             nightLookup.Add(night.night, night);
 
     }
+
+    private void Start()
+    {
+        CurrentNight = SaveManager.instance.CurrentNight;
+        isShiftCompleted = SaveManager.instance.isShiftCompleted;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             string currentScene = SceneManager.GetActiveScene().name;
+
+            Debug.Log("Loaded SAVE! Night: " + SaveManager.instance.CurrentNight);
 
             SaveManager.instance.SaveGame(); //SaveGame when pressing ESC
 

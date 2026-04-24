@@ -58,7 +58,7 @@ public class JupscareManager : MonoBehaviour
     private IEnumerator ReturnToMainMenu(float duration)
     {
         yield return new WaitForSeconds(duration);
-        SceneManager.LoadScene("NightIntroScene");
+        SceneManager.LoadScene("MainMenu");
         Debug.Log("Returning to MainMenu...");
     }
 }
