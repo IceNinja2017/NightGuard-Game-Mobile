@@ -9,13 +9,13 @@ public class NightData : MonoBehaviour
 
     [SerializeField] public bool haspoweroutage;
 
-    [SerializeField] private int CurrentNight = 1; //make sure to load from saved data in future
+    private int CurrentNight; //make sure to load from saved data in future
     public static NightData Instance { get; private set; } // Singleton instance
     public Animatronic JumpscaringAnimatronic { get; private set; } //name of the animatronic that caused the game over
 
     private Dictionary<int, NightAIData> nightLookup;
 
-    public bool isShiftCompleted = false; //check for is the player has finished all 5 nights
+    public bool isShiftCompleted; //check for is the player has finished all 5 nights
 
 
     void Awake()
@@ -28,6 +28,8 @@ public class NightData : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        CurrentNight = SaveManager.instance.CurrentNight;
+        isShiftCompleted = SaveManager.instance.isShiftCompleted;
 
         nightLookup = new Dictionary<int, NightAIData>();
 
@@ -40,6 +42,9 @@ public class NightData : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             string currentScene = SceneManager.GetActiveScene().name;
+
+            SaveManager.instance.SaveGame(); //SaveGame when pressing ESC
+
             // Exit application on Escape key press (for testing purposes)
             if (currentScene == "MainMenu")
             {

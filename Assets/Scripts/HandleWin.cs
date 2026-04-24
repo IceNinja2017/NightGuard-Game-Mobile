@@ -23,6 +23,8 @@ public class HandleWin : MonoBehaviour
         {
             hasHandledWin = true;
 
+            SaveManager.instance.SaveGame(); //SaveGame after completing everyshift
+
             if (NightData.Instance.getCurrentNight() >= 5)
             {
                 Debug.Log("You Win Hurrahh!!!");
