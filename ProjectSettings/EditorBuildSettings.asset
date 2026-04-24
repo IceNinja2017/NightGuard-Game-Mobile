@@ -24,5 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PayDayScene.unity
     guid: 7556ffa66878d294b8d154384928abbd
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c6e737598eecae34aaa3aff49854076b,
+      type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: 0b4df00595d8bcb478c37dc24a6ac007, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 5b52267788a572247b3a146a4b60df42, type: 2}
