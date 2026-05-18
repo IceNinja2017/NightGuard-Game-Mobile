@@ -42,30 +42,30 @@ public class NightData : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            string currentScene = SceneManager.GetActiveScene().name;
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    string currentScene = SceneManager.GetActiveScene().name;
 
-            Debug.Log("Loaded SAVE! Night: " + SaveManager.instance.CurrentNight);
+        //    Debug.Log("Loaded SAVE! Night: " + SaveManager.instance.CurrentNight);
 
-            SaveManager.instance.SaveGame(); //SaveGame when pressing ESC
+        //    SaveManager.instance.SaveGame(); //SaveGame when pressing ESC
 
-            // Exit application on Escape key press (for testing purposes)
-            if (currentScene == "MainMenu")
-            {
-                Application.Quit();
-                // Optional: Works in the editor
-                #if UNITY_EDITOR
-                            UnityEditor.EditorApplication.isPlaying = false;
-                #endif
-            }
-            else
-            {
-                SceneManager.LoadScene("MainMenu");
-            }
+        //    // Exit application on Escape key press (for testing purposes)
+        //    if (currentScene == "MainMenu")
+        //    {
+        //        Application.Quit();
+        //        // Optional: Works in the editor
+        //        #if UNITY_EDITOR
+        //                    UnityEditor.EditorApplication.isPlaying = false;
+        //        #endif
+        //    }
+        //    else
+        //    {
+        //        SceneManager.LoadScene("MainMenu");
+        //    }
 
             
-        }
+        //}
     }
 
     public int getCurrentNight()
