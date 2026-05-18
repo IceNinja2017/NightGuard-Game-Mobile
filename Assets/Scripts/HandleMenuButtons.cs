@@ -10,13 +10,13 @@ public class HandleMenuButtons : MonoBehaviour
         SaveManager.instance.CurrentNight = 1;
         NightData.Instance.setCurrentNight(1);
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene("NightIntroScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Prelude_Intro");
     }
 
     public void handleContinueBtn()
     {
         // Load the scene based on saved data
         NightData.Instance.setCurrentNight(NightData.Instance.getCurrentNight());
-        UnityEngine.SceneManagement.SceneManager.LoadScene("NightIntroScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Prelude_Intro");
     }
 }

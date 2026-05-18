@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
   - enabled: 1
+    path: Assets/Scenes/Prelude_Intro.unity
+    guid: 098709a5d5d9f12458918a5b52ea1a04
+  - enabled: 1
+    path: Assets/Scenes/FreeRoam.unity
+    guid: 1774f915cb47be445b7564de0b017f5b
+  - enabled: 1
     path: Assets/Scenes/NightIntroScene.unity
     guid: 0e148b4ae9ea2aa4c82416681f358b2a
   - enabled: 1
@@ -23,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PayDayScene.unity
     guid: 7556ffa66878d294b8d154384928abbd
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Matching.unity
+    guid: b859f8b6b64d27d4392edb0048bd7365
+  - enabled: 1
+    path: Assets/Scenes/Minigames/ColorConnect.unity
+    guid: 2c6cac70497c3e249bc8d0b525ae27cb
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c6e737598eecae34aaa3aff49854076b,
       type: 2}
