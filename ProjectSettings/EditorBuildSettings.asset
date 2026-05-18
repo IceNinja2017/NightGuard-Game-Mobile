@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/ColorConnect.unity
     guid: 2c6cac70497c3e249bc8d0b525ae27cb
+  - enabled: 1
+    path: Assets/Scenes/Minigames/WackaAnimatronic.unity
+    guid: f8159bba92447f54c997358713cee4f6
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c6e737598eecae34aaa3aff49854076b,
       type: 2}
