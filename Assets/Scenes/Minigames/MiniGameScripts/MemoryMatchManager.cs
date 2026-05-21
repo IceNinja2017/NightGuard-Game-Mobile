@@ -206,6 +206,6 @@ public class MemoryMatchManager : MonoBehaviour
     IEnumerator UnloadAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.UnloadSceneAsync("Matching");
+        MinigameManager.Instance.CompleteMinigame(true, "Matching");
     }
 }

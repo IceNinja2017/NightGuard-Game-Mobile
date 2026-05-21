@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform orientation;
 
+    [Header("Audio")]
+    public AudioSource footstep;
+
     float horizontalInput;
     float verticalInput;
 
@@ -25,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         MyInput();
+        HandleFootsteps();
     }
 
     private void FixedUpdate()
@@ -43,5 +47,25 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * movementSpeed * 10f, ForceMode.Force);
+    }
+
+    private void HandleFootsteps()
+    {
+        bool isMoving = horizontalInput != 0 || verticalInput != 0;
+
+        if (isMoving)
+        {
+            if (!footstep.isPlaying)
+            {
+                footstep.Play();
+            }
+        }
+        else
+        {
+            if (footstep.isPlaying)
+            {
+                footstep.Stop();
+            }
+        }
     }
 }

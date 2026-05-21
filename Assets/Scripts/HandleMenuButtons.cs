@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class HandleMenuButtons : MonoBehaviour
 {
+
+    [SerializeField] private AudioSource clickBtnSFX;
     public void handleNewGameBtn()
     {
+        clickBtnSFX.Play();
         // Load the first night scene
         SaveManager.instance.CurrentNight = 1;
         NightData.Instance.setCurrentNight(1);
@@ -15,6 +18,7 @@ public class HandleMenuButtons : MonoBehaviour
 
     public void handleContinueBtn()
     {
+        clickBtnSFX.Play();
         // Load the scene based on saved data
         NightData.Instance.setCurrentNight(NightData.Instance.getCurrentNight());
         UnityEngine.SceneManagement.SceneManager.LoadScene("Prelude_Intro");

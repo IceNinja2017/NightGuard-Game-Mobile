@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/WackaAnimatronic.unity
     guid: f8159bba92447f54c997358713cee4f6
+  - enabled: 1
+    path: Assets/Scenes/Minigames/CardFlip.unity
+    guid: 9553d3ee9f0b8784c87ce69a2ccd9f8b
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c6e737598eecae34aaa3aff49854076b,
       type: 2}

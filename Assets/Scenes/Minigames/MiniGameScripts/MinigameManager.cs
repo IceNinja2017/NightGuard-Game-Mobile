@@ -1,43 +1,56 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MinigameManager : MonoBehaviour
 {
-    enum Minigames
-    {
-        None,
-        Matching,
-        ColorConnect,
-        Minigame3
-    }
+    public static MinigameManager Instance { get; private set; }
 
-    private void Update()
+    // ADD THIS LINE: It returns true if a minigame is currently running
+    public bool IsMinigameActive => currentCallback != null;
+
+    private Action<bool> currentCallback;
+
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Instance == null)
         {
-            Selected = Minigames.Matching;
-            LoadMinigame(Selected.ToString());
+            Instance = this;
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
+        else
         {
-            Selected = Minigames.ColorConnect;
-            LoadMinigame(Selected.ToString());
+            Destroy(gameObject);
         }
     }
 
-    Minigames Selected;
-    public void LoadMinigame(string Minigame)
+    public void LoadMinigame(string sceneName, Action<bool> onFinished)
     {
-        switch (Selected)
+        currentCallback = onFinished;
+
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+    }
+
+    public void CompleteMinigame(bool success, string sceneName)
+    {
+        Debug.Log("Minigame Finished: " + sceneName);
+
+        if (success)
         {
-            case Minigames.Matching:
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Matching", UnityEngine.SceneManagement.LoadSceneMode.Additive);
-                break;
-            case Minigames.ColorConnect:
-                UnityEngine.SceneManagement.SceneManager.LoadScene("ColorConnect", UnityEngine.SceneManagement.LoadSceneMode.Additive);
-                break;
+            Debug.Log("Player WON the minigame");
         }
+        else
+        {
+            Debug.Log("Player LOST the minigame");
+        }
+
+        currentCallback?.Invoke(success);
+
+        Debug.Log("Unloading Minigame Scene: " + sceneName);
+
+        SceneManager.UnloadSceneAsync(sceneName);
+
+        currentCallback = null;
     }
 }

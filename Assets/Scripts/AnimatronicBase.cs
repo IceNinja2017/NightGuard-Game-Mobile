@@ -51,6 +51,7 @@ public abstract class AnimatronicBase : MonoBehaviour
 
     protected virtual void Start()
     {
+        Debug.Log("Starting " + animatronicName);
         AI_level = NightData.Instance.getAnimatronicAIOnCurrentNight(animatronicName);
         anim = animatronic.GetComponent<Animator>();
         current_room = startingRoom;

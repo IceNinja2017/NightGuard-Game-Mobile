@@ -32,7 +32,7 @@ public class MaIn : MonoBehaviour
         if (onCount == switchCount)
         {
             winText.SetActive(true);
-            StartCoroutine(UnloadAfterDelay(2f)); // 2 second delay
+            StartCoroutine(UnloadAfterDelay(2f)); 
         }
     }
 
@@ -46,6 +46,6 @@ public class MaIn : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        SceneManager.UnloadSceneAsync("ColorConnect");
+        MinigameManager.Instance.CompleteMinigame(true, "ColorConnect");
     }
 }

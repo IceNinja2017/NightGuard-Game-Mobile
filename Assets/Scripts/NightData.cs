@@ -32,12 +32,9 @@ public class NightData : MonoBehaviour
         foreach (var night in nights)
             nightLookup.Add(night.night, night);
 
-    }
-
-    private void Start()
-    {
         CurrentNight = SaveManager.instance.CurrentNight;
         isShiftCompleted = SaveManager.instance.isShiftCompleted;
+
     }
 
     void Update()
@@ -117,7 +114,11 @@ public class NightData : MonoBehaviour
 
         foreach (var animAI in nightData.animatronics)
         {
-            return animAI.aiLevel;
+            // Fix: Only return if the enum matches the requested animatronic
+            if (animAI.animatronic == animatronic)
+            {
+                return animAI.aiLevel;
+            }
         }
 
         Debug.LogWarning($"No AI data found for {animatronic} on night {CurrentNight}");

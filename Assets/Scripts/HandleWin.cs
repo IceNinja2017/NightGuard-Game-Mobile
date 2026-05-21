@@ -36,7 +36,7 @@ public class HandleWin : MonoBehaviour
             else
             {
                 NightData.Instance.nextNight();
-                SceneManager.LoadScene("NightIntroScene");
+                SceneManager.LoadScene("Prelude_Intro");
             }
         }
     }
