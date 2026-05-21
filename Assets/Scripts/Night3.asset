@@ -19,3 +19,5 @@ MonoBehaviour:
     aiLevel: 9
   - animatronic: 1
     aiLevel: 12
+  - animatronic: 2
+    aiLevel: 6

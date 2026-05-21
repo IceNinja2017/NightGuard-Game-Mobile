@@ -16,6 +16,8 @@ MonoBehaviour:
   powerDrain: 0.11627907
   animatronics:
   - animatronic: 0
-    aiLevel: 4
+    aiLevel: 5
   - animatronic: 1
-    aiLevel: 4
+    aiLevel: 5
+  - animatronic: 2
+    aiLevel: 0

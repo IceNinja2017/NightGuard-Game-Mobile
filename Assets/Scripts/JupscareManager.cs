@@ -9,6 +9,7 @@ public class JupscareManager : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject wortoxObject;
     [SerializeField] private GameObject angieObject;
+    [SerializeField] private GameObject catObject;
 
     private Animator currentAnimator;
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class JupscareManager : MonoBehaviour
 
         wortoxObject.SetActive(false);
         angieObject.SetActive(false);
+        catObject.SetActive(false);
 
         switch (who)
         {
@@ -31,6 +33,12 @@ public class JupscareManager : MonoBehaviour
             case Animatronic.Angie:
                 angieObject.SetActive(true);
                 currentAnimator = angieObject.GetComponent<Animator>();
+                currentAnimator.Play("Jumpscare");
+                StartCoroutine(WaitForAnimation(currentAnimator, "Jumpscare"));
+                break;
+            case Animatronic.Cat:
+                catObject.SetActive(true);
+                currentAnimator = catObject.GetComponent<Animator>();
                 currentAnimator.Play("Jumpscare");
                 StartCoroutine(WaitForAnimation(currentAnimator, "Jumpscare"));
                 break;

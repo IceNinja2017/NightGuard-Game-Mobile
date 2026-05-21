@@ -75,7 +75,7 @@ public abstract class AnimatronicBase : MonoBehaviour
             int hour = timerScript.getCurrentHour();
             if (hour >= 2 && hour <= 5 && AI_level > 20)
             {
-                AI_level += 1;
+                AI_level += 1; 
             }
         }
     }
@@ -148,7 +148,7 @@ public abstract class AnimatronicBase : MonoBehaviour
         return currentRoom;
     }
 
-    private void HandleStaticUI()
+    public void HandleStaticUI()
     {
         string activeCam = camSystem.getCurrentActiveCam();
 

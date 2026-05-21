@@ -1,5 +1,6 @@
 public enum Animatronic
 {
     Wortox,
-    Angie
+    Angie,
+    Cat
 }
