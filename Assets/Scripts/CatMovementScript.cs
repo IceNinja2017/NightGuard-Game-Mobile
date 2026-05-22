@@ -12,7 +12,6 @@ public class CatMovementScript : AnimatronicBase
     private float requiredFlashDuration = -1f;
     private bool isBeingFlashed = false;
 
-    // Track Cat's specific stage configuration locally to handle static triggers cleanly
     private string lastLoggedStage;
 
     protected override void Start()
@@ -20,7 +19,6 @@ public class CatMovementScript : AnimatronicBase
         startingRoom = "PartsAndService";
         base.Start();
 
-        // Initialize our stage tracker so it doesn't trigger static on the very first frame
         lastLoggedStage = EvaluateRoomFromProgress(progress);
         UpdateCatVisuals();
     }
@@ -35,7 +33,6 @@ public class CatMovementScript : AnimatronicBase
             HandleFlashlightDefense();
         }
 
-        // Custom static handler called every frame to catch desyncs instantly
         HandleCatStaticUI();
     }
 
@@ -105,7 +102,7 @@ public class CatMovementScript : AnimatronicBase
             {
                 if (progress > 0)
                 {
-                    int subtractedProgress = UnityEngine.Random.Range(50, 101);
+                    int subtractedProgress = UnityEngine.Random.Range(50, 76);
                     progress -= subtractedProgress;
                     if (progress < 0) progress = 0;
 
@@ -138,12 +135,8 @@ public class CatMovementScript : AnimatronicBase
         ChangeRoom(targetStateKey);
     }
 
-    /// <summary>
-    /// Custom static overlay rules designed specifically for Cat's progressive state changes
-    /// </summary>
-    private void HandleCatStaticUI()
+    private void HandleCatStaticUI() //This is For the Static Effect on the Camera when the cat moves
     {
-        // If his stage group layout hasn't changed at all, don't execute any heavy rendering calculations
         if (current_room == lastLoggedStage) return;
 
         // Trigger monitor interference ONLY if the player has their camera system actively pulled up 
@@ -154,7 +147,6 @@ public class CatMovementScript : AnimatronicBase
             camSystem.animatronicMoveStatic();
         }
 
-        // Keep our state-machine baseline synchronized
         lastLoggedStage = current_room;
     }
 
