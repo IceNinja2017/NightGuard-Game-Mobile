@@ -10,6 +10,7 @@ public class HandleWin : MonoBehaviour
     private bool hasHandledWin = false;
     void Start()
     {
+        NightData.Instance.additionalPower = 0; //reset additional power when you win the night
         clock.text = "5:59 AM";
         clock.DOFade(0, 4.5f).From();
         Invoke("FlipToSix", 4.5f);

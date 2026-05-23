@@ -37,6 +37,8 @@ public class PowerSystem : MonoBehaviour
         {
             UsageSpite[i].SetActive(false);
         }
+
+        power += NightData.Instance.additionalPower; //add any additional power from minigames in prologue
     }
 
     // Update is called once per frame

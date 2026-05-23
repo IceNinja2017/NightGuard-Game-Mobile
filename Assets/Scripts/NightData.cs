@@ -17,6 +17,8 @@ public class NightData : MonoBehaviour
 
     public bool isShiftCompleted; //check for is the player has finished all 5 nights
 
+    public int additionalPower = 0; //used for the powerup system, adds to the power when compleating minigames in prologue, resets to 0 at the end of the night
+
 
     void Awake()
     {

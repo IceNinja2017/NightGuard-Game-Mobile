@@ -15,6 +15,7 @@ public class JupscareManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        NightData.Instance.additionalPower = 0; //reset additional power when you die
         gameOverUI.SetActive(false);
         Animatronic who = NightData.Instance != null ? NightData.Instance.JumpscaringAnimatronic : Animatronic.Wortox;
 
