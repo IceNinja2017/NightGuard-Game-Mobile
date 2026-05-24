@@ -44,11 +44,18 @@ public class CatMovementScript : AnimatronicBase
 
         if (movementTimer >= MovementInterval)
         {
+            if (isBeingFlashed)
+            {
+                Debug.Log("Cat is being flashed => movement roll blocked.");
+                movementTimer = 0f;
+                return;
+            }
+
             int roll = UnityEngine.Random.Range(0, 20);
 
             if (roll < AI_level)
             {
-                int addedProgress = UnityEngine.Random.Range(25, 60);
+                int addedProgress = UnityEngine.Random.Range(50, 70);
                 progress += addedProgress;
                 if (progress > 600) progress = 600;
 
@@ -102,7 +109,7 @@ public class CatMovementScript : AnimatronicBase
             {
                 if (progress > 0)
                 {
-                    int subtractedProgress = UnityEngine.Random.Range(50, 76);
+                    int subtractedProgress = UnityEngine.Random.Range(30, 60);
                     progress -= subtractedProgress;
                     if (progress < 0) progress = 0;
 

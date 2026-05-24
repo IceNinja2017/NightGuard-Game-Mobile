@@ -2585,6 +2585,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5afdbbc1c5916af4a9eb1d9237188487, type: 2}
   haspoweroutage: 0
   isShiftCompleted: 0
+  additionalPower: 0
 --- !u!4 &1775853420
 Transform:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,14 +10,24 @@ public class MinigameManager : MonoBehaviour
 {
     public static MinigameManager Instance { get; private set; }
 
-    // ADD THIS LINE: It returns true if a minigame is currently running
+    // It returns true if a minigame is currently running
     public bool IsMinigameActive => currentCallback != null;
 
-    public GameObject minigameList; // Reference to the minigame list UI
+    [Header("Main UI")]
+    public GameObject checklistUI;
+    public GameObject minigameList;
+
+    [Header("Popup UI")]
+    [SerializeField] private GameObject powerPopup;
+    [SerializeField] private TMP_Text powerPopupText;
+    [SerializeField] private float popupDuration = 2f;
+
+    [Header("Reward Settings")]
+    private int additionalPowerReward;
 
     private Action<bool> currentCallback;
 
-    private int additionalPowerReward; // This will hold the additional power reward for the current minigame
+
 
     private void Awake()
     {
@@ -33,11 +45,20 @@ public class MinigameManager : MonoBehaviour
     {
         NightData.Instance.additionalPower = 0; // Reset additional power when starting prologue
         additionalPowerReward = 0; // Initialize the additional power reward
+        powerPopup.SetActive(true);
+        powerPopup.transform.localScale = Vector3.zero;
+        powerPopup.SetActive(false);
 
         if (NightData.Instance.getCurrentNight() == 1)
         {
             minigameList.SetActive(false); // Hide the minigame list when night 1
         }
+    }
+
+    private void Update()
+    {
+        if (IsMinigameActive) checklistUI.SetActive(false);
+        else checklistUI.SetActive(true);
     }
 
     public void LoadMinigame(string sceneName, Action<bool> onFinished)
@@ -51,14 +72,22 @@ public class MinigameManager : MonoBehaviour
     {
         Debug.Log("Minigame Finished: " + sceneName);
 
+        int powerChange = 0;
+
         if (success)
         {
             Debug.Log("Player WON the minigame");
+            powerChange = 2;
+            additionalPowerReward += powerChange; // Example: Each completed minigame adds 5 to the additional power reward
         }
         else
         {
             Debug.Log("Player LOST the minigame");
+            powerChange = -2;
+            additionalPowerReward -= powerChange; // Example: Each failed minigame subtracts 2 from the additional power reward
         }
+
+        ShowPowerPopup(powerChange);
 
         currentCallback?.Invoke(success);
 
@@ -67,12 +96,55 @@ public class MinigameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(sceneName);
 
         currentCallback = null;
-
-        additionalPowerReward += 5; // Example: Each completed minigame adds 5 to the additional power reward
     }
 
     private void OnDestroy()
     {
-        NightData.Instance.additionalPower = additionalPowerReward; // Add the accumulated additional power reward to NightData when the manager is destroyed
+        additionalPowerReward = Mathf.Clamp(additionalPowerReward, -8, 8); // Add the accumulated additional power reward to NightData when the manager is destroyed
+        NightData.Instance.additionalPower = additionalPowerReward;
+    }
+
+    private void ShowPowerPopup(int amount)
+    {
+        powerPopup.SetActive(true);
+
+        if (amount >= 0)
+        {
+            powerPopupText.text = "+" + amount + " Power";
+            powerPopupText.color = Color.green;
+        }
+        else
+        {
+            powerPopupText.text = amount + " Power";
+            powerPopupText.color = Color.red;
+        }
+
+        // reset any previous tweens
+        powerPopup.transform.DOKill();
+
+        // POP IN animation
+        powerPopup.transform.localScale = Vector3.zero;
+
+        powerPopup.transform
+            .DOScale(1f, 0.25f)
+            .SetEase(Ease.OutBack);
+
+        StopAllCoroutines();
+        StartCoroutine(HidePopupCoroutine());
+    }
+
+    private IEnumerator HidePopupCoroutine()
+    {
+        yield return new WaitForSeconds(popupDuration);
+
+        powerPopup.transform.DOKill();
+
+        powerPopup.transform
+            .DOScale(0f, 0.2f)
+            .SetEase(Ease.InBack)
+            .OnComplete(() =>
+            {
+                powerPopup.SetActive(false);
+            });
     }
 }

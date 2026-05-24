@@ -16,8 +16,10 @@ public class MemoryMatchManager : MonoBehaviour
     [Header("Dot Manager")]
     public DotManager dotManager;
 
-    [Header("UI Instruction")]
+    [Header("UI")]
     public TextMeshProUGUI instructionText;
+    public TextMeshProUGUI triesLeftUI;
+
 
     [Header("Popup UI")]
     public GameObject popupPanel;
@@ -25,6 +27,10 @@ public class MemoryMatchManager : MonoBehaviour
 
     [Header("Settings")]
     public int sequenceLength = 5;
+
+    [Header("Lives")]
+    public int maxLives = 3;
+    private int currentLives;
 
     private List<int> sequence = new List<int>();
     private List<int> playerInput = new List<int>();
@@ -38,6 +44,11 @@ public class MemoryMatchManager : MonoBehaviour
         StartGame();
     }
 
+    private void Update()
+    {
+        triesLeftUI.text = $"Tries Left: {currentLives}";
+    }
+
     private void OnDestroy()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -49,15 +60,14 @@ public class MemoryMatchManager : MonoBehaviour
         canInput = false;
         playerInput.Clear();
 
-        // SHOW instruction at start
+        currentLives = maxLives;
+
         if (instructionText != null)
             instructionText.gameObject.SetActive(true);
 
-        // RESET DOTS
         if (dotManager != null)
             dotManager.ResetDots();
 
-        // HIDE popup at start
         if (popupPanel != null)
             popupPanel.SetActive(false);
 
@@ -69,7 +79,7 @@ public class MemoryMatchManager : MonoBehaviour
     {
         sequence.Clear();
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < sequenceLength; i++)
         {
             sequence.Add(Random.Range(0, 4));
         }
@@ -81,7 +91,6 @@ public class MemoryMatchManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        // HIDE instruction when game starts
         if (instructionText != null)
             instructionText.gameObject.SetActive(false);
 
@@ -103,10 +112,9 @@ public class MemoryMatchManager : MonoBehaviour
     {
         if (btn == null) return;
 
-        if (on)
-            btn.image.transform.localScale = Vector3.one * 1.15f;
-        else
-            btn.image.transform.localScale = Vector3.one;
+        btn.image.transform.localScale = on
+            ? Vector3.one * 1.15f
+            : Vector3.one;
     }
 
     Button GetButton(int index)
@@ -136,10 +144,18 @@ public class MemoryMatchManager : MonoBehaviour
 
         if (!isCorrect)
         {
+            currentLives--;
+
             ShowFail();
 
             if (dotManager != null)
                 dotManager.SetWrong();
+
+            if (currentLives <= 0)
+            {
+                StartCoroutine(UnloadAfterDelay(1.5f, false));
+                return;
+            }
 
             StartCoroutine(RestartSequence());
             return;
@@ -148,10 +164,10 @@ public class MemoryMatchManager : MonoBehaviour
         if (dotManager != null)
             dotManager.SetCorrect();
 
-        if (playerInput.Count >= 5)
+        if (playerInput.Count >= sequenceLength)
         {
             ShowSuccess();
-            StartCoroutine(UnloadAfterDelay(2f));
+            StartCoroutine(UnloadAfterDelay(2f, true));
         }
     }
 
@@ -164,7 +180,6 @@ public class MemoryMatchManager : MonoBehaviour
         btn.image.transform.localScale = Vector3.one;
     }
 
-    // 🎉 SUCCESS UI
     void ShowSuccess()
     {
         if (popupPanel == null || popupText == null) return;
@@ -174,7 +189,6 @@ public class MemoryMatchManager : MonoBehaviour
         popupText.color = Color.green;
     }
 
-    // ❌ FAIL UI
     void ShowFail()
     {
         if (popupPanel == null || popupText == null) return;
@@ -200,12 +214,17 @@ public class MemoryMatchManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        StartGame();
+        playerInput.Clear();
+
+        if (dotManager != null)
+            dotManager.ResetDots();
+
+        StartCoroutine(ShowSequence());
     }
 
-    IEnumerator UnloadAfterDelay(float delay)
+    IEnumerator UnloadAfterDelay(float delay, bool won)
     {
         yield return new WaitForSeconds(delay);
-        MinigameManager.Instance.CompleteMinigame(true, "Matching");
+        MinigameManager.Instance.CompleteMinigame(won, "Matching");
     }
 }
