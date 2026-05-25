@@ -17,6 +17,31 @@ public class MinigameManager : MonoBehaviour
     public GameObject checklistUI;
     public GameObject minigameList;
 
+    // --- ADDITION FOR CHECKLIST STRIKETHROUGH & COLOR ---
+    [System.Serializable]
+    public struct MinigameTextMapping
+    {
+        [Tooltip("The exact name of the minigame scene (e.g., CardFlipScene)")]
+        public string sceneName;
+        [Tooltip("The text GameObject from your hierarchy (e.g., CardFlip, ColorConnect)")]
+        public TMP_Text checklistText;
+    }
+    [Header("Checklist Text Elements")]
+    [SerializeField] private List<MinigameTextMapping> minigameChecklist;
+
+    // --- ADDITION FOR WIN LIMIT ---
+    [Header("Game Limit Settings")]
+    [SerializeField] private int maxSuccessfulGames = 3;
+    private int successfulGamesCount = 0;
+
+    // --- ADDITION FOR GLOBAL TIMER ---
+    [Header("Global Timer Settings")]
+    [Tooltip("Total time in seconds the player has to play minigames (e.g., 180 seconds = 3 minutes)")]
+    [SerializeField] private float timeRemaining = 180f;
+    [Tooltip("Drag the TimerText UI object you just created here")]
+    [SerializeField] private TMP_Text timerText;
+    private bool isTimerRunning = true;
+
     [Header("Popup UI")]
     [SerializeField] private GameObject powerPopup;
     [SerializeField] private TMP_Text powerPopupText;
@@ -59,10 +84,85 @@ public class MinigameManager : MonoBehaviour
     {
         if (IsMinigameActive) checklistUI.SetActive(false);
         else checklistUI.SetActive(true);
+
+        // --- RUNS THE TIMER LOGIC EVERY FRAME ---
+        UpdateGlobalTimer();
+    }
+
+    // --- METHOD: HANDLES TIMER COUNTDOWN AND DISPLAY FORMATTING ---
+    private void UpdateGlobalTimer()
+    {
+        if (!isTimerRunning) return;
+
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+            DisplayTime(timeRemaining);
+        }
+        else
+        {
+            Debug.Log("Time ran out!");
+            timeRemaining = 0;
+            isTimerRunning = false;
+            OnTimeRanOut();
+        }
+    }
+
+    private void DisplayTime(float timeToDisplay)
+    {
+        if (timeToDisplay < 0) timeToDisplay = 0;
+
+        // Calculates minutes and seconds structural presentation
+        int minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        int seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        // Updates the text block directly into a "00:00" string structure
+        if (timerText != null)
+        {
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+    }
+
+    private void OnTimeRanOut()
+    {
+        if (timerText != null)
+        {
+            timerText.text = "<color=red>00:00</color>";
+        }
+
+        // Force-closes active additive minigames immediately on timeout failure
+        if (IsMinigameActive)
+        {
+            string activeMinigameScene = "";
+            for (int i = 0; i < SceneManager.sceneCount; i++)
+            {
+                Scene s = SceneManager.GetSceneAt(i);
+                if (s.name != gameObject.scene.name)
+                {
+                    activeMinigameScene = s.name;
+                    break;
+                }
+            }
+            CompleteMinigame(false, activeMinigameScene);
+        }
+
+        // Hide menus completely since time is up
+        minigameList.SetActive(false);
+        checklistUI.SetActive(false);
+
+        // NOTE: If you need to trigger a night transition scene change or game over panel, put it here
+        Debug.LogWarning("Time has expired entirely. Restricting menu access.");
     }
 
     public void LoadMinigame(string sceneName, Action<bool> onFinished)
     {
+        // --- SAFEGUARD CHECK: Blocks loading if 3 wins are achieved OR if timer hits 00:00 ---
+        if (successfulGamesCount >= maxSuccessfulGames || timeRemaining <= 0)
+        {
+            Debug.LogWarning($"Cannot load {sceneName}. Maximum games cleared or timeline expired.");
+            return;
+        }
+
         currentCallback = onFinished;
 
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
@@ -78,7 +178,18 @@ public class MinigameManager : MonoBehaviour
         {
             Debug.Log("Player WON the minigame");
             powerChange = 3;
-            additionalPowerReward += powerChange; // Example: Each completed minigame adds 5 to the additional power reward
+            additionalPowerReward += powerChange; // Example: Each completed minigame adds 3 to the additional power reward
+
+            // --- TRACK PROGRESS AND STRIKE OUT TEXT IN RED ---
+            successfulGamesCount++;
+            StrikethroughCompletedMinigame(sceneName);
+
+            // Shuts off selection panel and stops timer immediately when reaching the 3 game limit
+            if (successfulGamesCount >= maxSuccessfulGames)
+            {
+                isTimerRunning = false;
+                minigameList.SetActive(false);
+            }
         }
         else
         {
@@ -93,7 +204,10 @@ public class MinigameManager : MonoBehaviour
 
         Debug.Log("Unloading Minigame Scene: " + sceneName);
 
-        SceneManager.UnloadSceneAsync(sceneName);
+        if (!string.IsNullOrEmpty(sceneName))
+        {
+            SceneManager.UnloadSceneAsync(sceneName);
+        }
 
         currentCallback = null;
     }
@@ -146,5 +260,21 @@ public class MinigameManager : MonoBehaviour
             {
                 powerPopup.SetActive(false);
             });
+    }
+
+    // --- HELPER METHOD TO APPLY RED COLOR AND STRIKETHROUGH VIA TMPro TAGS ---
+    private void StrikethroughCompletedMinigame(string sceneName)
+    {
+        foreach (var mapping in minigameChecklist)
+        {
+            if (mapping.sceneName == sceneName && mapping.checklistText != null)
+            {
+                if (!mapping.checklistText.text.StartsWith("<s>"))
+                {
+                    mapping.checklistText.text = $"<s><color=red>{mapping.checklistText.text}</color></s>";
+                }
+                break;
+            }
+        }
     }
 }

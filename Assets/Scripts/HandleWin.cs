@@ -24,18 +24,18 @@ public class HandleWin : MonoBehaviour
         {
             hasHandledWin = true;
 
-            SaveManager.instance.SaveGame(); //SaveGame after completing everyshift
-
             if (NightData.Instance.getCurrentNight() >= 5)
             {
                 Debug.Log("You Win Hurrahh!!!");
                 NightData.Instance.isShiftCompleted = true;
+                SaveManager.instance.SaveGame();
 
                 //Transition to PayDay Screen (EndCredits)
                 SceneManager.LoadScene("PayDayScene");
             }
             else
             {
+                SaveManager.instance.SaveGame();
                 NightData.Instance.nextNight();
                 SceneManager.LoadScene("Prelude_Intro");
             }

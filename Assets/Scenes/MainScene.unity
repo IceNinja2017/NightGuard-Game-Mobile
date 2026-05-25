@@ -1932,7 +1932,7 @@ GameObject:
   - component: {fileID: 442857208}
   - component: {fileID: 442857210}
   m_Layer: 0
-  m_Name: PartsAndService
+  m_Name: Parts_And_Service
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4441,7 +4441,7 @@ GameObject:
   - component: {fileID: 826079843}
   - component: {fileID: 826079845}
   m_Layer: 0
-  m_Name: PrizeCorner
+  m_Name: Prize_Corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10098,7 +10098,7 @@ GameObject:
   - component: {fileID: 1696431957}
   - component: {fileID: 1696431959}
   m_Layer: 0
-  m_Name: DinningArea
+  m_Name: Study_Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
