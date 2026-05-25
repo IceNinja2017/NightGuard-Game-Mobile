@@ -1131,7 +1131,7 @@ MonoBehaviour:
   startingRoom: PartsAndService
   timerScript: {fileID: 529666510}
   camSystem: {fileID: 529666515}
-  MovementInterval: 4
+  MovementInterval: 5
   AI_level: 0
   progress: 0
 --- !u!1 &334411787

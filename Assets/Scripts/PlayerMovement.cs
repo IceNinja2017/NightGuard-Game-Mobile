@@ -46,7 +46,13 @@ public class PlayerMovement : MonoBehaviour
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        rb.AddForce(moveDirection.normalized * movementSpeed * 10f, ForceMode.Force);
+        Vector3 velocity = moveDirection.normalized * movementSpeed;
+
+        rb.velocity = new Vector3(
+            velocity.x,
+            rb.velocity.y,
+            velocity.z
+        );
     }
 
     private void HandleFootsteps()

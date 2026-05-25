@@ -77,13 +77,13 @@ public class MinigameManager : MonoBehaviour
         if (success)
         {
             Debug.Log("Player WON the minigame");
-            powerChange = 2;
+            powerChange = 3;
             additionalPowerReward += powerChange; // Example: Each completed minigame adds 5 to the additional power reward
         }
         else
         {
             Debug.Log("Player LOST the minigame");
-            powerChange = -2;
+            powerChange = -3;
             additionalPowerReward -= powerChange; // Example: Each failed minigame subtracts 2 from the additional power reward
         }
 

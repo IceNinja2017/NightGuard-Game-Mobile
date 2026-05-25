@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CatMovementScript : AnimatronicBase
 {
@@ -55,7 +56,7 @@ public class CatMovementScript : AnimatronicBase
 
             if (roll < AI_level)
             {
-                int addedProgress = UnityEngine.Random.Range(50, 70);
+                int addedProgress = UnityEngine.Random.Range(40, 70);
                 progress += addedProgress;
                 if (progress > 600) progress = 600;
 
