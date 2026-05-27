@@ -35,7 +35,6 @@ public class NightData : MonoBehaviour
 
         CurrentNight = SaveManager.instance.CurrentNight;
         isShiftCompleted = SaveManager.instance.isShiftCompleted;
-
     }
 
     void Update()

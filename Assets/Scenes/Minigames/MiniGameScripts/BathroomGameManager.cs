@@ -22,14 +22,31 @@ public class BathroomGameManager : MonoBehaviour
     private HashSet<HeadPop> currentHeads = new HashSet<HeadPop>();
     private int score = 0;
     private bool playing = false;
-    private int targetScore = 15;
+    private int targetScore;
 
     private float spawnTimer;
     private float spawnInterval = 0.5f;
 
     public void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
+        if (NightData.Instance.getCurrentNight() <= 2)
+        {
+            targetScore = 10;
+        }
+        else if (NightData.Instance.getCurrentNight() == 3)
+        {
+            targetScore = 15;
+        }
+        else if (NightData.Instance.getCurrentNight() == 4)
+        {
+            targetScore = 20;
+        }
+        else
+        {
+            targetScore = 25;
+        }
+
+            Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         ResetAndStartGame();
     }

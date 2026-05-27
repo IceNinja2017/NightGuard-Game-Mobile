@@ -116,15 +116,15 @@ public class WortoxMovementScript : AnimatronicBase
             },
             {"PrizeCorner", new Dictionary<string, int>()
                 {
-                    { "DinningArea", 100},
+                    { "StudyArea", 100},
                 }
             },
-            {"DinningArea", CreateDinningAreaToKitchen()},
-            {"DinningArea2", CreateDinningAreaToKitchen()},
+            {"StudyArea", CreateDinningAreaToKitchen()},
+            {"StudyArea2", CreateDinningAreaToKitchen()},
             {"Kitchen", new Dictionary<string, int>()
                 {
                     { "LeftHall", 90},
-                    { "DinningArea2", 10}
+                    { "StudyArea2", 10}
                 }
             },
             {"LeftHall", new Dictionary<string, int>()

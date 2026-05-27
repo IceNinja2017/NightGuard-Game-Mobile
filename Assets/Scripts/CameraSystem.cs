@@ -15,10 +15,8 @@ public class CameraSystem : MonoBehaviour, IPowerUser
     [SerializeField] private int currentCamera;
     [SerializeField] private bool isCameraOpen;
 
-    // CHANGED: Track individual light states per camera to avoid layout desyncs
-    private bool[] cameraLightStates;
+    public bool disabled = false;
 
-    public bool disabled = false; //for camera ui
     private Dictionary<GameObject, float> cameraBaseRanges = new Dictionary<GameObject, float>();
 
     AudioSource[] camsfx;
@@ -26,15 +24,11 @@ public class CameraSystem : MonoBehaviour, IPowerUser
     private Image camStaticImage;
     private int activeStaticCount = 0;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         camStaticImage = CameraUI.transform.Find("CamStatic").GetComponent<Image>();
         ventVolume = vent.GetComponent<AudioSource>().volume;
-        camsfx = this.GetComponents<AudioSource>();
-
-        cameraLightStates = new bool[cameras.Length]; // Initialize state array matching size
+        camsfx = GetComponents<AudioSource>();
 
         CameraUI.SetActive(false);
         CurrentCameraText.text = cameras[currentCamera].name + "_Cam";
@@ -43,19 +37,16 @@ public class CameraSystem : MonoBehaviour, IPowerUser
         {
             var cam = cameras[i];
             var light = cam.GetComponentInChildren<Light>();
+
             cameraBaseRanges[cam] = light.range;
 
             light.enabled = false;
-            cameraLightStates[i] = false; // Ensure everything resets clean
-
             cam.SetActive(false);
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // forceClose
         if (Input.GetKeyDown(KeyCode.Space) && isCameraOpen)
         {
             isCameraOpen = false;
@@ -63,34 +54,30 @@ public class CameraSystem : MonoBehaviour, IPowerUser
 
         ShowCamera();
 
-        // Safe check cleanup loop synchronization
+        // safety cleanup (only visual, no state tracking)
         for (int i = 0; i < cameras.Length; i++)
         {
-            if (cameras[i].activeInHierarchy == false)
+            if (!cameras[i].activeInHierarchy)
             {
                 Light camLight = cameras[i].GetComponentInChildren<Light>();
-                if (camLight.enabled != false)
-                {
+                if (camLight != null)
                     camLight.enabled = false;
-                }
-
-                // Force state tracking off for any disabled camera container safely
-                cameraLightStates[i] = false;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && cameras[currentCamera].activeInHierarchy == true)
+        if (Input.GetKeyDown(KeyCode.F) && cameras[currentCamera].activeInHierarchy)
         {
-            if (!getCamLightOn()) camsfx[1].pitch = 1f;
-            else camsfx[1].pitch = 0.9f;
+            camsfx[1].pitch = getCamLightOn() ? 0.9f : 1f;
             camsfx[1].Play();
+
             toggleCamLights(cameras[currentCamera]);
         }
     }
 
     public void toggleCamera()
     {
-        if (!disabled) isCameraOpen = !isCameraOpen;
+        if (!disabled)
+            isCameraOpen = !isCameraOpen;
     }
 
     private void ShowCamera()
@@ -98,6 +85,7 @@ public class CameraSystem : MonoBehaviour, IPowerUser
         if (isCameraOpen)
         {
             vent.GetComponent<AudioSource>().volume = ventVolume / 2f;
+
             CameraUI.SetActive(true);
             cameras[currentCamera].SetActive(true);
             mainCamera.SetActive(false);
@@ -105,54 +93,43 @@ public class CameraSystem : MonoBehaviour, IPowerUser
         else
         {
             vent.GetComponent<AudioSource>().volume = ventVolume;
+
             CameraUI.SetActive(false);
             cameras[currentCamera].SetActive(false);
             mainCamera.SetActive(true);
         }
     }
 
-    public void goToCamera(int prograssion)
+    public void goToCamera(int index)
     {
-        // Turn off the light component on the current camera before deactivating it
         Light currentLight = cameras[currentCamera].GetComponentInChildren<Light>();
         if (currentLight != null)
-        {
             currentLight.enabled = false;
-        }
-        cameraLightStates[currentCamera] = false; // Reset state tracking flag for old room node
 
-        // Swap the active view tracking references
-        CurrentCameraText.text = cameras[prograssion].name + "_Cam";
+        CurrentCameraText.text = cameras[index].name + "_Cam";
+
         cameras[currentCamera].SetActive(false);
-        cameras[prograssion].SetActive(true);
+        cameras[index].SetActive(true);
 
-        currentCamera = prograssion;
+        currentCamera = index;
     }
 
     public void toggleCamLights(GameObject camera)
     {
         Light camLight = camera.GetComponentInChildren<Light>();
+        if (camLight == null) return;
 
-        if (camLight.enabled == true)
-        {
-            camLight.enabled = false;
-            cameraLightStates[currentCamera] = false;
-        }
-        else
-        {
-            camLight.enabled = true;
-            cameraLightStates[currentCamera] = true;
-        }
+        camLight.enabled = !camLight.enabled;
     }
 
+    // ✅ FIX: real truth source = actual Light, not cached bool array
     public bool getCamLightOn()
     {
-        // Safe protection check against out-of-bounds arrays during execution ticks
-        if (currentCamera >= 0 && currentCamera < cameraLightStates.Length)
-        {
-            return cameraLightStates[currentCamera];
-        }
-        return false;
+        if (currentCamera < 0 || currentCamera >= cameras.Length)
+            return false;
+
+        Light camLight = cameras[currentCamera].GetComponentInChildren<Light>();
+        return camLight != null && camLight.enabled;
     }
 
     public bool getIsCameraOpen()
@@ -160,15 +137,16 @@ public class CameraSystem : MonoBehaviour, IPowerUser
         return isCameraOpen;
     }
 
-    //for interface
     public bool IsUsingPower()
     {
         return getIsCameraOpen();
     }
 
-    public void setDisabled() //disabled the cameras
+    public void setDisabled()
     {
-        if (isCameraOpen) toggleCamera();
+        if (isCameraOpen)
+            toggleCamera();
+
         disabled = true;
     }
 
@@ -186,8 +164,7 @@ public class CameraSystem : MonoBehaviour, IPowerUser
         activeStaticCount++;
         camStaticImage.color = new Color(1f, 1f, 1f, 1f);
 
-        // Only dim the light once
-        if (activeStaticCount == 1)
+        if (light != null && activeStaticCount == 1)
         {
             light.range = baseRange - 30f;
         }
@@ -196,10 +173,9 @@ public class CameraSystem : MonoBehaviour, IPowerUser
 
         activeStaticCount--;
 
-        // Only reset if this is the last active dim
-        if (activeStaticCount == 0)
+        if (light != null && activeStaticCount == 0)
         {
-            camStaticImage.color = new Color(1f, 1f, 1f, 0.25f);
+            camStaticImage.color = new Color(1f, 1f, 0.25f, 0.25f);
             light.range = baseRange;
         }
     }

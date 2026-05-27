@@ -26,6 +26,10 @@ public class CatMovementScript : AnimatronicBase
 
     protected override void Update()
     {
+        Debug.Log(camSystem);
+        Debug.Log(camSystem.getCurrentActiveCam());
+        Debug.Log(camSystem.getCamLightOn());
+
         HandleJumpscare();
         HandleRoomChange();
 

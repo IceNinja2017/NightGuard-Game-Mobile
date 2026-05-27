@@ -40,10 +40,10 @@ public class AngieMovementScript : AnimatronicBase
             },
             {"PartsAndService", new Dictionary<string, int>()
                 {
-                    { "DinningArea", 90},
+                    { "StudyArea", 90},
                 }
             },
-            {"DinningArea", new Dictionary<string, int>()
+            {"StudyArea", new Dictionary<string, int>()
                 {
                     { "Bathroom", 90},
                     { "PartsAndService", 10}
@@ -52,7 +52,7 @@ public class AngieMovementScript : AnimatronicBase
             {"Bathroom", new Dictionary<string, int>()
                 {
                     { "RightHall", 70},
-                    { "DinningArea", 30}
+                    { "StudyArea", 30}
                 }
             },
             { "RightHall", new Dictionary<string, int>()
@@ -105,7 +105,7 @@ public class AngieMovementScript : AnimatronicBase
                     }
                     else if (!doorscript.getIsOpen())
                     {
-                        current_room = "DinningArea";
+                        current_room = "StudyArea";
                         door.GetComponent<Door>().playDoorBonk();
                     }
                     else
