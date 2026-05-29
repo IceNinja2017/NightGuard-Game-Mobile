@@ -105,7 +105,6 @@ public class CatMovementScript : AnimatronicBase
                 requiredFlashDuration = UnityEngine.Random.Range(1f, 2f);
                 flashTimer = 0f;
                 isBeingFlashed = true;
-                Debug.Log($"Flashing Cat! Must hold for: {requiredFlashDuration:F2}s");
             }
 
             flashTimer += Time.deltaTime;
@@ -118,7 +117,6 @@ public class CatMovementScript : AnimatronicBase
                     progress -= subtractedProgress;
                     if (progress < 0) progress = 0;
 
-                    Debug.Log($"Flash hit! Cat lost {subtractedProgress} progress. Current Progress: {progress}");
                     UpdateCatVisuals();
                 }
 
@@ -133,7 +131,6 @@ public class CatMovementScript : AnimatronicBase
                 requiredFlashDuration = -1f;
                 flashTimer = 0f;
                 isBeingFlashed = false;
-                Debug.Log("Player let go of flash or switched cams early.");
             }
         }
     }
@@ -155,7 +152,6 @@ public class CatMovementScript : AnimatronicBase
         // AND they are physically inspecting Cat's location ("PartsAndService")
         if (camSystem.getIsCameraOpen() && camSystem.getCurrentActiveCam() == "PartsAndService")
         {
-            Debug.Log($"Cat changed stage from {lastLoggedStage} to {current_room}! Triggering visual static.");
             camSystem.animatronicMoveStatic();
         }
 

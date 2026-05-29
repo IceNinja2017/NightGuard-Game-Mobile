@@ -14,6 +14,14 @@ public class MinigameInteractable : MonoBehaviour, IInteractable
         }
     }
 
+    private void Update()
+    {
+        if (MinigameManager.Instance.GetTimeRemaining() <= 1) 
+        {
+            completed = true;
+        }
+    }
+
     public void Interact()
     {
         //if (NightData.Instance.getCurrentNight() <= 1) return; // Only allow interaction after Night 1

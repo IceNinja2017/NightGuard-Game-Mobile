@@ -5,17 +5,16 @@ public class AngieMovementScript : AnimatronicBase
     [Header("Angie - Specific Settings")]
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject door; //rightdoor
-    [SerializeField] private AvailableRooms selected; //this is for debugging
 
     private AudioSource[] sfx;
     private bool isSfxPlayed;
     private CameraLook camlook;
     private Door doorscript;
 
-    public enum AvailableRooms
-    {
-        Stage, PartsAndService, DinningArea, Bathroom, RightHall, RightDoor, Office
-    }
+    //public enum AvailableRooms
+    //{
+    //    Stage, PartsAndService, StudyArea, Bathroom, RightHall, RightDoor, Office
+    //}
 
     protected override void Start()
     {
@@ -108,20 +107,11 @@ public class AngieMovementScript : AnimatronicBase
                         current_room = "StudyArea";
                         door.GetComponent<Door>().playDoorBonk();
                     }
-                    else
-                    {
-                        //Debug.Log("LeftDoor to Office failed — camera not open.");
-                    }
                 }
                 else
                 {
                     current_room = next;
-                    //Debug.Log("I've Moved to " + current_room);
                 }
-            }
-            else
-            {
-                //Debug.Log("I Failed to Move ");}
             }
             movementTimer = 0;
         }

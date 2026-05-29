@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/FreeRoam.unity
     guid: 1774f915cb47be445b7564de0b017f5b
   - enabled: 1
+    path: Assets/Scenes/Freeroam_Jumpscare.unity
+    guid: 0e2db2081b19d4140893ec1d76a39d2f
+  - enabled: 1
     path: Assets/Scenes/NightIntroScene.unity
     guid: 0e148b4ae9ea2aa4c82416681f358b2a
   - enabled: 1

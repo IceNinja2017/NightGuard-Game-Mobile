@@ -6,7 +6,6 @@ public class WortoxMovementScript : AnimatronicBase
     [Header("Wortox - Specific Settings")]
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject door; //leftdoor
-    [SerializeField] private AvailableRooms selected; //this is for debugging
 
     private AudioSource[] sfx;
     private bool isSfxPlayed;
@@ -16,10 +15,10 @@ public class WortoxMovementScript : AnimatronicBase
     //when power is out
     private float powerOutJumpscareTimer = 0;
     public float jumpsacreDelay = -1f;
-    public enum AvailableRooms
-    {
-        Stage, PrizeCorner, DinningArea, DinningArea2, Kitchen, LeftHall, LeftDoor, Office
-    }
+    //public enum AvailableRooms
+    //{
+    //    Stage, PrizeCorner, StudyArea, StudyArea2, Kitchen, LeftHall, LeftDoor, Office
+    //}
 
     protected override void Start()
     {
@@ -37,7 +36,6 @@ public class WortoxMovementScript : AnimatronicBase
         {
             powerOutJumpscareTimer += Time.deltaTime;
             if (jumpsacreDelay < 0) jumpsacreDelay = UnityEngine.Random.Range(4, 10);
-            Debug.Log(powerOutJumpscareTimer + "/" + jumpsacreDelay);
 
             if (powerOutJumpscareTimer >= jumpsacreDelay)
             {
@@ -63,26 +61,18 @@ public class WortoxMovementScript : AnimatronicBase
                     {
                         current_room = next;
                         jumpscareTimer = 0f;
-                        Debug.Log("I'am Now Inside ");
                     }
                     else if (!doorscript.getIsOpen())
                     {
-                        current_room = "DinningArea";
+                        current_room = "StudyArea";
                         door.GetComponent<Door>().playDoorBonk();
-                        Debug.Log("I was blocked... Returning to Dinning room");
-                    }
-                    else
-                    {
-                        Debug.Log("LeftDoor to Office failed — camera not open.");
                     }
                 }
                 else
                 {
                     current_room = next;
-                    Debug.Log("I've Moved to " + current_room);
                 }
             }
-            else Debug.Log("I Failed to Move ");
 
             movementTimer = 0;
         }

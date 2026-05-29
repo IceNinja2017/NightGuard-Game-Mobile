@@ -10,14 +10,12 @@ public class MinigameManager : MonoBehaviour
 {
     public static MinigameManager Instance { get; private set; }
 
-    // It returns true if a minigame is currently running
-    public bool IsMinigameActive => currentCallback != null;
+    public bool IsMinigameActive => currentCallback != null; // returns true if a minigame is currently running
 
     [Header("Main UI")]
     public GameObject checklistUI;
     public GameObject minigameList;
 
-    // --- ADDITION FOR CHECKLIST STRIKETHROUGH & COLOR ---
     [System.Serializable]
     public struct MinigameTextMapping
     {
@@ -29,12 +27,10 @@ public class MinigameManager : MonoBehaviour
     [Header("Checklist Text Elements")]
     [SerializeField] private List<MinigameTextMapping> minigameChecklist;
 
-    // --- ADDITION FOR WIN LIMIT ---
     [Header("Game Limit Settings")]
     [SerializeField] private int maxSuccessfulGames = 3;
     private int successfulGamesCount = 0;
 
-    // --- ADDITION FOR GLOBAL TIMER ---
     [Header("Global Timer Settings")]
     [Tooltip("Total time in seconds the player has to play minigames (e.g., 180 seconds = 3 minutes)")]
     [SerializeField] private float timeRemaining = 180f;
@@ -78,6 +74,8 @@ public class MinigameManager : MonoBehaviour
         {
             minigameList.SetActive(false); // Hide the minigame list when night 1
         }
+
+        PlayerDialogueManager.Instance.PlayDialogue(DialogueEventType.NightStart, 1f); // Play night start dialogue with a delay
     }
 
     private void Update()
@@ -117,7 +115,16 @@ public class MinigameManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
         // Updates the text block directly into a "00:00" string structure
-        if (timerText != null)
+        if (timeRemaining <= 11)
+        {
+            PlayerDialogueManager.Instance.PlayDialogue(DialogueEventType.TimerEnd);
+        }
+
+        if (timeToDisplay <= 11)
+        {
+            timerText.text = string.Format("<color=red>{0:00}:{1:00}</color>", minutes, seconds);
+        }
+        else if (timerText != null)
         {
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
@@ -143,15 +150,15 @@ public class MinigameManager : MonoBehaviour
                     break;
                 }
             }
-            CompleteMinigame(false, activeMinigameScene);
         }
 
         // Hide menus completely since time is up
         minigameList.SetActive(false);
         checklistUI.SetActive(false);
 
-        // NOTE: If you need to trigger a night transition scene change or game over panel, put it here
+        // ----NOTE: Code After Timer Runsout----
         Debug.LogWarning("Time has expired entirely. Restricting menu access.");
+        SceneManager.LoadScene("Freeroam_Jumpscare");
     }
 
     public void LoadMinigame(string sceneName, Action<bool> onFinished)
@@ -187,15 +194,14 @@ public class MinigameManager : MonoBehaviour
             // Shuts off selection panel and stops timer immediately when reaching the 3 game limit
             if (successfulGamesCount >= maxSuccessfulGames)
             {
-                isTimerRunning = false;
                 minigameList.SetActive(false);
             }
         }
         else
         {
             Debug.Log("Player LOST the minigame");
-            powerChange = -3;
-            additionalPowerReward -= powerChange; // Example: Each failed minigame subtracts 2 from the additional power reward
+            powerChange = -2;
+            additionalPowerReward += powerChange; // Example: Each failed minigame subtracts 2 from the additional power reward
         }
 
         ShowPowerPopup(powerChange);
@@ -214,7 +220,7 @@ public class MinigameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        additionalPowerReward = Mathf.Clamp(additionalPowerReward, -8, 8); // Add the accumulated additional power reward to NightData when the manager is destroyed
+        additionalPowerReward = Mathf.Clamp(additionalPowerReward, -9, 9); // Add the accumulated additional power reward to NightData when the manager is destroyed
         NightData.Instance.additionalPower = additionalPowerReward;
     }
 
@@ -262,7 +268,6 @@ public class MinigameManager : MonoBehaviour
             });
     }
 
-    // --- HELPER METHOD TO APPLY RED COLOR AND STRIKETHROUGH VIA TMPro TAGS ---
     private void StrikethroughCompletedMinigame(string sceneName)
     {
         foreach (var mapping in minigameChecklist)
@@ -276,5 +281,10 @@ public class MinigameManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public float GetTimeRemaining()
+    {
+        return timeRemaining;
     }
 }

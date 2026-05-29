@@ -46,7 +46,7 @@ public class PowerSystem : MonoBehaviour
     {
         if (!NightData.Instance.haspoweroutage)
         {
-            if (power <= 0)
+            if (power <= 1)
             {
                 TriggerPowerOutage();
             }

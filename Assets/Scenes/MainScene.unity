@@ -1074,7 +1074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307637807}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0050602234, w: 0.9999872}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1083,7 +1083,7 @@ Transform:
   - {fileID: 1556586596}
   - {fileID: 1490049455}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.58}
 --- !u!114 &307637809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,7 +1114,6 @@ MonoBehaviour:
   AI_level: 0
   player: {fileID: 963194225}
   door: {fileID: 2024700412}
-  selected: 0
   jumpsacreDelay: -1
 --- !u!82 &307637810
 AudioSource:
@@ -1241,7 +1240,6 @@ MonoBehaviour:
   AI_level: 0
   player: {fileID: 963194225}
   door: {fileID: 1092568993}
-  selected: 0
 --- !u!114 &307637812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3249,7 +3247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f30006adba5f84494fd6a519a37b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 100
+  power: 101
   powerDrain: 0
   usagelevel: 1
   batteryPercent: {fileID: 2058331931}
